@@ -31,11 +31,7 @@ export const deletePost = createAsyncThunk(
   async (body, thunkAPI) => {
     console.log(body.id);
     const idDelete = body.id;
-
-    return await new Promise((resolve, reject) =>
-      setTimeout(() => {
-        return resolve(idDelete);
-      }, 1000)
-    );
+    var response = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${idDelete}`);
+    return idDelete;
   }
 );
